@@ -3,6 +3,9 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float speed;
+    public float jumpForce;
+    bool left = false;
+
     private Rigidbody2D rb;
     
     void Start()
@@ -13,10 +16,41 @@ public class PlayerControl : MonoBehaviour
    
     void Update()
     {
-        rb.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.linearVelocityY);
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        
+    }
+
+    private void FixedUpdate()
+    {
+
+        float moveHorizontal = Input.GetAxis("Horizontal");
+
+        // Move
+        rb.linearVelocity = new Vector2(moveHorizontal * speed, rb.linearVelocityY);
+        
+
+        // Rotate Char
+        if (moveHorizontal < 0 && !left)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocityX, speed);
+            RotateChar();
         }
+        else if (moveHorizontal > 0 && left)
+        {
+            RotateChar();
+        }
+
+
+        // Jump
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpForce);
+        }
+    }
+
+    void RotateChar()
+    {
+        left = !left;
+        Vector3 newScale = transform.localScale;
+        newScale.x *= -1;
+        transform.localScale = newScale;
     }
 }
