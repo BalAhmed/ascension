@@ -4,6 +4,8 @@ public class PlayerControl : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
+    public float jumpTime = 0.5f;
+    bool shouldJump = true;
     bool left = false;
 
     private Rigidbody2D rb;
@@ -40,9 +42,13 @@ public class PlayerControl : MonoBehaviour
 
 
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpForce);
+            if (shouldJump)
+            {
+                rb.linearVelocity = new Vector3(rb.linearVelocityX, jumpForce, 0);
+                shouldJump = false;
+            }
         }
     }
 
@@ -53,4 +59,13 @@ public class PlayerControl : MonoBehaviour
         newScale.x *= -1;
         transform.localScale = newScale;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Floor"))
+        {
+            shouldJump = true;
+        }
+    }
+    
 }
