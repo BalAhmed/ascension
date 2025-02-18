@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 1011606802}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,13 +368,8 @@ Transform:
   m_GameObject: {fileID: 1011606798}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: -0.0138, y: -0.4039, z: 0}
   m_LocalScale: {x: 0.9985, y: 0.9921, z: 1}
-=======
-  m_LocalPosition: {x: -0.009, y: 0.065, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> 5abf2305ceec9a745496ed54d9824df079ce5042
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1757685813}
@@ -28931,7 +28926,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
-  jumpTime: 2
 --- !u!50 &1073493595
 Rigidbody2D:
   serializedVersion: 5
@@ -28969,7 +28963,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 2afd405160d98d546a16791497585fa9, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29008,7 +29002,7 @@ GameObject:
   - component: {fileID: 1757685812}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
